@@ -1,0 +1,27 @@
+#Change directory and list scripts
+
+#cd "C:\pstoolkit"
+
+Write-Host "See available scripts below"
+
+dir | Format-Table -Property Name
+
+#Prompt user for a script they would like to run and set to variable
+
+$selectScript = Read-Host -Prompt "Enter the name of the above script you wish to run"
+
+#Set remote computer variable from user input
+
+$remoteComputer = Read-Host -Prompt "Enter Computer Name"
+
+#Run the selected script on the remote computer remotely
+
+Function Invoke-Remote ()
+
+{
+
+Invoke-Command $selectScript -ComputerName $remoteComputer -Credential [domain]\administrator
+
+}
+
+Invoke-Remote

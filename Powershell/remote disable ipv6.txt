@@ -1,0 +1,1 @@
+Invoke-Command -ComputerName ws10376 -ScriptBlock { Disable-NetAdapterBinding -Name "*" -ComponentID ms_tcpip6 }
